@@ -1,15 +1,16 @@
-const startQuiz = document.querySelector('#start');
-const timerText = document.querySelector(".timer");
-const startScreen = document.querySelector('#start-screen');
-const questionScreen = document.querySelector('#questions');
-const questionTitle = document.querySelector('#question-title');
-const choices = document.querySelector('#choices');
+var startQuiz = document.querySelector('#start');
+var timerText = document.querySelector(".timer");
+var startScreen = document.querySelector('#start-screen');
+var questionScreen = document.querySelector('#questions');
+var questionTitle = document.querySelector('#question-title');
+var questionChoices = document.querySelector('#choices');
 
 var timeLeft = 80;
 var timer;
 
 startQuiz.addEventListener('click', function() {
-    startScreen.style.display = 'none';
+    startScreen.setAttribute("class", "hide");
+    questionScreen.setAttribute("class", "show");
     startTimer();
 });
 
@@ -27,3 +28,21 @@ function startTimer() {
     }, 1000);
 }
 
+let index = 0;
+var correctAnswer;
+
+function showQuestion() {
+    var currentQuestion = questions[index]
+    questionTitle.textContent = currentQuestion.question;
+
+    var buttons = "";
+    userOptions = currentQuestion.choices;
+    correctAnswer = currentQuestion.correct;
+  
+    for (var key in userOptions) {
+      buttons += `<button>${key}. ${userOptions[key]}</button>`;
+      questionChoices.innerHTML = buttons;
+    }
+}
+
+showQuestion()

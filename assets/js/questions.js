@@ -2,20 +2,20 @@ var questions = [
 	{
 		question: 'Inside which HTML element do we put the JavaScript?',
 		choices: {
-            a: '<js>',
-			b: '<script>',
-			c: '<javascript>',
-            d: '<scripting>',
+            a: 'js',
+			b: 'script',
+			c: 'javascript',
+            d: 'scripting',
         },
         correct: 'b',
 	},
     {
 		question: 'What is the correct syntax for referring to an external script called "xxx.js"?',
 		choices: {
-            a: '<script src="xxx.js">',
-			b: '<script href="xxx.js">',
-			c: '<script name="xxx.js">',
-            d: '<script code="xxx.js">',
+            a: 'script src="xxx.js"',
+			b: 'script href="xxx.js"',
+			c: 'script name="xxx.js"',
+            d: 'script code="xxx.js"',
         },
         correct: 'a',
 	},
@@ -94,8 +94,7 @@ var questions = [
             c: 'NaN',
         },
         correct: 'b',
-	},
+	}
 ]
-
 
 
