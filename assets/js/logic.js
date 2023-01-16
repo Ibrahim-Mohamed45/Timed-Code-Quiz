@@ -31,7 +31,7 @@ function startTimer() {
 let index = 0;
 var correctAnswer;
 
-function showQuestion() {
+function showQuestions() {
     var currentQuestion = questions[index]
     questionTitle.textContent = currentQuestion.question;
 
@@ -45,4 +45,3 @@ function showQuestion() {
     }
 }
 
-showQuestion()
