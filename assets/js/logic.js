@@ -1,20 +1,24 @@
-var startQuiz = document.querySelector('#start');
-var timertxt = document.querySelector(".timer");
+const startQuiz = document.querySelector('#start');
+const timerText = document.querySelector(".timer");
+const startScreen = document.querySelector('#start-screen');
+const questionScreen = document.querySelector('#questions');
+const questionTitle = document.querySelector('#question-title');
+const choices = document.querySelector('#choices');
 
-
-var timeLeft = 70;
+var timeLeft = 80;
 var timer;
 
 startQuiz.addEventListener('click', function() {
+    startScreen.style.display = 'none';
     startTimer();
 });
 
 function startTimer() {
     timer = setInterval(function () {
       timeLeft--;
-      timertxt.textContent = 'Time: ' + timeLeft + ' seconds remaining';
+      timerText.textContent = 'Time: ' + timeLeft + ' seconds remaining';
       if (timeLeft === 1) {
-        timertxt.textContent = 'Time: ' + timeLeft + ' second remaining';
+        timerText.textContent = 'Time: ' + timeLeft + ' second remaining';
       }
       if (timeLeft === 0) {
         clearInterval(timer);
@@ -22,3 +26,4 @@ function startTimer() {
       }
     }, 1000);
 }
+
