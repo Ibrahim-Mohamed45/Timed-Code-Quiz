@@ -45,3 +45,18 @@ function showQuestions() {
     }
 }
 
+questionChoices.addEventListener("click", function (evt) {
+    var userAnswer = evt.target;
+    var userKey = userAnswer.innerText;
+    var key = userKey.charAt();
+    if (key === correctAnswer) {
+        alert('You got it right.')
+      } else {
+        alert('You got it wrong.')
+        timeLeft -= 10;
+      }
+      index ++
+      showQuestions()
+});
+
+  showQuestions()
