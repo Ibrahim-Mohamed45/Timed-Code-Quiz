@@ -50,9 +50,9 @@ questionChoices.addEventListener("click", function (evt) {
     var userKey = userAnswer.innerText;
     var key = userKey.charAt();
     if (key === correctAnswer) {
-        alert('You got it right.')
+        console.log("correct")
       } else {
-        alert('You got it wrong.')
+        console.log("wrong")
         timeLeft -= 10;
       }
       index ++
