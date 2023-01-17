@@ -14,5 +14,10 @@ for (var i = 0; i < scores.length; i++) {
   li.textContent = `${player.initials} - Score: ${player.score}`;
 
   highScores.appendChild(li);
-
 }
+
+clearBtn.addEventListener("click", function () {
+  localStorage.clear();
+  location.reload();
+});
+
