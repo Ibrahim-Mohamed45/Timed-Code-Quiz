@@ -4,13 +4,15 @@ var startScreen = document.querySelector('#start-screen');
 var questionScreen = document.querySelector('#questions');
 var questionTitle = document.querySelector('#question-title');
 var questionChoices = document.querySelector('#choices');
+var feedback = document.querySelector('#feedback');
 
 var timeLeft = 80;
 var timer;
 
 startQuiz.addEventListener('click', function() {
-    startScreen.setAttribute("class", "hide");
-    questionScreen.setAttribute("class", "show");
+    startScreen.setAttribute('class', 'hide');
+    questionScreen.setAttribute('class', 'show');
+    feedback.setAttribute('class', 'feedback');
     startTimer();
 });
 
@@ -21,7 +23,7 @@ function startTimer() {
       if (timeLeft === 1) {
         timerText.textContent = 'Time: ' + timeLeft + ' second remaining';
       }
-      if (timeLeft === 0) {
+      if (timeLeft <= 0) {
         clearInterval(timer);
         loseGame();
       }
@@ -50,13 +52,13 @@ questionChoices.addEventListener("click", function (evt) {
     var userKey = userAnswer.innerText;
     var key = userKey.charAt();
     if (key === correctAnswer) {
-        console.log("correct")
+        feedback.textContent = 'Correct!';
       } else {
-        console.log("wrong")
+        feedback.textContent = 'Wrong!';
         timeLeft -= 10;
       }
       index ++
       showQuestions()
 });
 
-  showQuestions()
+showQuestions()
