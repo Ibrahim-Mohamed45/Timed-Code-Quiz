@@ -1,20 +1,25 @@
-var startQuiz = document.querySelector('#start');
-var timerText = document.querySelector(".timer");
 var startScreen = document.querySelector('#start-screen');
 var questionScreen = document.querySelector('#questions');
 var endScreen = document.querySelector('#end-screen');
+
+var startQuiz = document.querySelector('#start');
+var timerText = document.querySelector(".timer");
+
 var questionTitle = document.querySelector('#question-title');
 var questionChoices = document.querySelector('#choices');
 var feedback = document.querySelector('#feedback');
+var correctSound = new Audio('./assets/sfx/correct.wav')
+var wrongSound =new Audio('./assets/sfx/incorrect.wav');
+
 var finalScore = document.querySelector("#final-score");
 var initials = document.querySelector('#initials');
 var submitBtn = document.querySelector('#submit');
-var correctSound = new Audio('./assets/sfx/correct.wav')
-var wrongSound =new Audio('./assets/sfx/incorrect.wav');
+
 
 var timeLeft = 80;
 var timer;
 
+// Start button that 
 startQuiz.addEventListener('click', function () {
     startScreen.setAttribute('class', 'hide');
     questionScreen.setAttribute('class', 'show');
