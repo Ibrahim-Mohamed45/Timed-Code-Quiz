@@ -94,6 +94,22 @@ function gameOver() {
     finalScore.textContent = score;
 }
 
+var playerList = [];
+
+function storage() {
+    if (localStorage.highscore) {
+      var highscore = JSON.parse(localStorage.getItem('highscore'));
+      for (var i = 0; i < highscore.length; i++) {
+        playerList.push(highscore[i]);
+      }
+      localStorage.clear();
+    }
+}
+  
+function storePlayers() {
+    localStorage.setItem('highscore', JSON.stringify(playerList));
+}
+
 function submitScore() {
     
     // Alerts the user to enter initials if they leave input blank 
@@ -102,9 +118,19 @@ function submitScore() {
     } else {
         initials = initials.value.toUpperCase();
 
-        location.href = './highscores.html'
+        var playerObj = {
+            initials: initials,
+            score: score,
+        };
+
+        playerList.push(playerObj);
+
+        storage();
+        storePlayers();
+    
     }
 }
+
 
 submitBtn.addEventListener('click', submitScore);
 
