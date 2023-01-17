@@ -67,12 +67,12 @@ var questions = [
         correct: 'a',
 	},
     {
-		question: 'How do you call a function named "myFunction"?',
+		question: 'What is the correct syntax for creating a function in JavaScript?',
 		choices: {
-            a: 'call function myFunction()',
-			b: 'call = myfunction()',
-            c: 'call myFunction()',
-            d: 'myFunction()',
+            a: 'create function myFunction()',
+			b: 'myfunction()',
+            c: 'new function myFunction()',
+            d: 'function myFunction()',
         },
         correct: 'd',
 	},
