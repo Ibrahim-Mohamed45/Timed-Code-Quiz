@@ -127,7 +127,9 @@ function submitScore() {
 
         storage();
         storePlayers();
-    
+        
+        initials.value = '';
+        location.href = './highscores.html';
     }
 }
 
