@@ -7,11 +7,13 @@ var questionTitle = document.querySelector('#question-title');
 var questionChoices = document.querySelector('#choices');
 var feedback = document.querySelector('#feedback');
 var finalScore = document.querySelector("#final-score");
+var initials = document.querySelector('#initials');
+var submitBtn = document.querySelector('#submit');
 
 var timeLeft = 80;
 var timer;
 
-startQuiz.addEventListener('click', function() {
+startQuiz.addEventListener('click', function () {
     startScreen.setAttribute('class', 'hide');
     questionScreen.setAttribute('class', 'show');
     feedback.setAttribute('class', 'feedback');
@@ -20,15 +22,15 @@ startQuiz.addEventListener('click', function() {
 
 function startTimer() {
     timer = setInterval(function () {
-      timeLeft--;
-      timerText.textContent = 'Time: ' + timeLeft + ' seconds remaining';
-      if (timeLeft === 1) {
-        timerText.textContent = 'Time: ' + timeLeft + ' second remaining';
-      }
-      if (timeLeft <= 0) {
-        clearInterval(timer);
-        gameOver();
-      }
+        timeLeft--;
+        timerText.textContent = 'Time: ' + timeLeft + ' seconds remaining';
+        if (timeLeft === 1) {
+            timerText.textContent = 'Time: ' + timeLeft + ' second remaining';
+        }
+        if (timeLeft <= 0) {
+            clearInterval(timer);
+            gameOver();
+        }
     }, 1000);
 }
 
@@ -42,10 +44,10 @@ function showQuestions() {
     var buttons = "";
     userOptions = currentQuestion.choices;
     correctAnswer = currentQuestion.correct;
-  
+
     for (var key in userOptions) {
-      buttons += `<button>${key}. ${userOptions[key]}</button>`;
-      questionChoices.innerHTML = buttons;
+        buttons += `<button>${key}. ${userOptions[key]}</button>`;
+        questionChoices.innerHTML = buttons;
     }
 }
 
@@ -55,12 +57,27 @@ questionChoices.addEventListener("click", function (evt) {
     var key = userKey.charAt();
     if (key === correctAnswer) {
         feedback.textContent = 'Correct!';
-      } else {
+    }
+
+    if (key !== correctAnswer) {
+
         feedback.textContent = 'Wrong!';
-        timeLeft -= 10;
-      }
-      index ++
-      showQuestions()
+
+        if (timeLeft < 10) {
+            timeLeft = 1;
+            gameOver();
+        } else {
+            timeLeft -= 10;
+        }
+    }
+
+    if (questions.length === index + 1) {
+        gameOver();
+        clearInterval(timer);
+    } else {
+        index++;
+        showQuestions();
+    }
 });
 
 var score;
@@ -72,5 +89,19 @@ function gameOver() {
     score = timeLeft;
     finalScore.textContent = score;
 }
+
+function submitScore() {
+    
+    // Alerts the user to enter initials if they leave input blank 
+    if (initials.value == '') {
+        alert('Please enter your initials');
+    } else {
+        initials = initials.value.toUpperCase();
+    }
+    console.log(initials)
+}
+
+submitBtn.addEventListener('click', submitScore);
+
 
 showQuestions();
