@@ -9,6 +9,8 @@ var feedback = document.querySelector('#feedback');
 var finalScore = document.querySelector("#final-score");
 var initials = document.querySelector('#initials');
 var submitBtn = document.querySelector('#submit');
+var correctSound = new Audio('./assets/sfx/correct.wav')
+var wrongSound =new Audio('./assets/sfx/incorrect.wav');
 
 var timeLeft = 80;
 var timer;
@@ -57,11 +59,14 @@ questionChoices.addEventListener("click", function (evt) {
     var key = userKey.charAt();
     if (key === correctAnswer) {
         feedback.textContent = 'Correct!';
+        correctSound.play()
+        index++;
     }
 
     if (key !== correctAnswer) {
 
         feedback.textContent = 'Wrong!';
+        wrongSound.play();
 
         if (timeLeft < 10) {
             timeLeft = 1;
@@ -71,11 +76,10 @@ questionChoices.addEventListener("click", function (evt) {
         }
     }
 
-    if (questions.length === index + 1) {
+    if (questions.length === index) {
         gameOver();
         clearInterval(timer);
     } else {
-        index++;
         showQuestions();
     }
 });
@@ -97,11 +101,11 @@ function submitScore() {
         alert('Please enter your initials');
     } else {
         initials = initials.value.toUpperCase();
+
+        location.href = './highscores.html'
     }
-    console.log(initials)
 }
 
 submitBtn.addEventListener('click', submitScore);
-
 
 showQuestions();
