@@ -6,6 +6,7 @@ var endScreen = document.querySelector('#end-screen');
 var questionTitle = document.querySelector('#question-title');
 var questionChoices = document.querySelector('#choices');
 var feedback = document.querySelector('#feedback');
+var finalScore = document.querySelector("#final-score");
 
 var timeLeft = 80;
 var timer;
@@ -62,10 +63,14 @@ questionChoices.addEventListener("click", function (evt) {
       showQuestions()
 });
 
+var score;
+
 function gameOver() {
     questionScreen.setAttribute('class', 'hide');
     feedback.setAttribute('class', 'hide');
-    endScreen.setAttribute('class', 'show')
+    endScreen.setAttribute('class', 'show');
+    score = timeLeft;
+    finalScore.textContent = score;
 }
 
 showQuestions();
