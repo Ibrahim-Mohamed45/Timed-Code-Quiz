@@ -2,6 +2,7 @@ var startQuiz = document.querySelector('#start');
 var timerText = document.querySelector(".timer");
 var startScreen = document.querySelector('#start-screen');
 var questionScreen = document.querySelector('#questions');
+var endScreen = document.querySelector('#end-screen');
 var questionTitle = document.querySelector('#question-title');
 var questionChoices = document.querySelector('#choices');
 var feedback = document.querySelector('#feedback');
@@ -25,7 +26,7 @@ function startTimer() {
       }
       if (timeLeft <= 0) {
         clearInterval(timer);
-        loseGame();
+        gameOver();
       }
     }, 1000);
 }
@@ -61,4 +62,10 @@ questionChoices.addEventListener("click", function (evt) {
       showQuestions()
 });
 
-showQuestions()
+function gameOver() {
+    questionScreen.setAttribute('class', 'hide');
+    feedback.setAttribute('class', 'hide');
+    endScreen.setAttribute('class', 'show')
+}
+
+showQuestions();
