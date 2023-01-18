@@ -68,7 +68,7 @@ questionChoices.addEventListener("click", function (evt) {
     // If users answered correctly the correct sound is played and adds 1 to the index which displays the next question.
     if (key === correctAnswer) {
         feedback.textContent = 'Correct!';
-        correctSound.play()
+        correctSound.play();
         index++;
     }
 
