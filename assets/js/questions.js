@@ -1,3 +1,4 @@
+// Questions array with one object for each question.
 var questions = [
 	{
 		question: 'Inside which HTML element do we put the JavaScript?',
