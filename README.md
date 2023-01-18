@@ -38,6 +38,11 @@ Create a code quiz that contains the following requirements:
 The live website looks like this:
 <img src="assets\images\Code-Quiz-Website.png" alt="Image of what the website should look like.">
 
+## Mock Up
+The following animation demonstrates the application functionality:
+
+<img src="assets\images\Code-Quiz-GIF.gif" alt="Gif of what the website functionality should look like.">
+
 ## Installation
 
 This can be deployed on any server or client with a browser. <a href="https://ibrahim-mohamed45.github.io/Timed-Code-Quiz/" target="_blank"> Timed code quiz website</a>
