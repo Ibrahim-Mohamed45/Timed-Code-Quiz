@@ -16,7 +16,7 @@ var initials = document.querySelector('#initials');
 var submitBtn = document.querySelector('#submit');
 
 
-var timeLeft = 80;
+var timeLeft = 60;
 var timer;
 
 // Function which changes the class of the screens when the start button is pressed.
@@ -69,7 +69,6 @@ questionChoices.addEventListener("click", function (evt) {
     if (key === correctAnswer) {
         feedback.textContent = 'Correct!';
         correctSound.play();
-        index++;
     }
 
     // If users answers incorrectly 10 seconds is subtacted from the time and the wrong sound is played.
@@ -86,6 +85,8 @@ questionChoices.addEventListener("click", function (evt) {
             timeLeft -= 10;
         }
     }
+
+    index++;
 
     // If all the questions are answered the game over function is triggered
     if (questions.length === index) {
