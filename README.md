@@ -2,7 +2,7 @@
 
 ## Description
 
-This application is a timed coding quiz with multiple-choice questions. This app runs in the users browser, and features dynamically updated HTML and CSS through the use of JavaScript.
+This application is a timed coding quiz with multiple-choice questions. This app runs in the user's browser, and features dynamically updated HTML and CSS through the use of JavaScript.
 
 ### Built with
 * JavaScript
